@@ -68,7 +68,7 @@ def editar(request, producto_id):
             form = FormProducto(data=request.POST, instance=un_producto)
             if form.is_valid():
                 form.save()
-            return redirect("ABM:productos")
+            return redirect("ABM:index")
         else:
                 form = FormProducto(instance = un_producto)
                 return render(request, 'productos/editar.html', {
@@ -80,7 +80,7 @@ def editar(request, producto_id):
 def eliminar(request, producto_id):
     un_producto = get_object_or_404(Producto, id=producto_id)
     un_producto.delete()
-    return redirect("ABM:productos")
+    return redirect("ABM:index")
 
 
 

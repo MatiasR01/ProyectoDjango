@@ -12,7 +12,7 @@ def registrarse(request):
         form = RegistroForm(request.POST)
         if form.is_valid():
             form.save()          
-            return HttpResponseRedirect(reverse('ABM/index'))
+            return HttpResponseRedirect(reverse('ABM:index'))
     else:
         form = RegistroForm()
     return render(request, 'registration/registro.html', {

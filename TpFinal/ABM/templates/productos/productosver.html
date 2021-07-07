@@ -14,16 +14,16 @@ Categoria
 Precio
 <div class="alert alert-info" role="alert"> ${{ producto.precio }}</span></p>
 </div>
-  {% if perms.ABM.editar%}
+  
    <form class="form-inline">
      <input type="button" value="Volver" onClick="history.go(-1);">
-
+      {% if perms.ABM.editar%}
       <div aling="center">
           <a type="button" class="btn btn-warning" style="margin-left: 20px" href="{% url 'ABM:eliminar' producto.id %}">Eliminar </a> 
           <a type="button" class="btn btn-warning" style="margin-left: 20px" href="{% url 'ABM:editar' producto.id %}">Modificar</a>
         </div>
-
+      {% endif %} 
 
     </form> 
-   {% endif %}  
+    
 {% endblock %}
