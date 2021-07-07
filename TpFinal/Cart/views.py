@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from .cart import Cart
 
-from ABM.models import Producto
+from .models import Producto
 from django.shortcuts import redirect
 
 def  agregar(request, producto_id):
