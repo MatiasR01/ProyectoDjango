@@ -1,0 +1,30 @@
+{% extends "productos/layout.html" %}
+{% block body %}
+<h3>Publicar un nuevo Producto</h3>
+<form enctype="multipart/form-data" action="{% url 'ABM:agregar' %}" method="post" >
+    {% csrf_token %}
+    <div class="form-group row">
+        <label for="titulo_input"  class="col-sm-2 col-form-label">Titulo:</label> {{ form.titulo }} {{ form.titulo.errors }}
+    </div>
+    <div class="form-group row">
+        <label for="descripcion_input"  class="col-sm-2 col-form-label">Descripcion:</label> {{ form.descripcion }} {{ form.descripcion.errors }}
+    </div>    
+    <div class="form-group row">
+        <label for="precio_input"  class="col-sm-2 col-form-label">Precio:</label> {{ form.precio }} {{ form.precio.errors }}
+    </div>
+    <div class="form-group row">
+       Categoria: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         {{ form.categoria }} {{ form.categoria.errors }}
+
+    </div>
+    <div class="form-group row">
+        <label for="imagen_input"  class="col-sm-2 col-form-label">Imagen Adjunta:</label> {{ form.imagen }} {{ form.imagen.errors }}
+    </div>
+
+    <div class="col-auto">
+        <a class="btn btn-secondary" type="button" href="{% url 'ABM:index'%}">Volver</a>
+        <input type="submit" class="btn btn-primary" value="Publicar">
+    </div>
+</form>
+
+{% endblock %}

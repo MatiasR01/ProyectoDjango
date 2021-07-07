@@ -1,0 +1,39 @@
+{% extends "productos/layout.html" %}
+{% block body %}
+<div class="container">
+  <div class="row">
+  <div class="col-md-12 search">
+   <form method="GET">
+     <div class="input-group col-md-12">
+          <input  type="search" class="form-control" placeholder="Buscar..." name="buscar">
+          <span class="input-group-list">
+              <i class="icon icon-search"></i>
+              <button type="submit" class="btn btn-success">Buscar</button>
+           </span>
+        </div>
+    </form>
+    </div>
+    </div>  
+ <form class="form-inline">
+{% for producto in productos %}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col-md-3">
+    <div class="card" style="width: 100%; margin: 5px 5px;">
+        
+         <img src="{{producto.imagen.url}}" class="card-img-top">
+            
+            <div class="card-body" style="text-aling: center;">
+                <h5 class="card-tittle"> {{producto.titulo}}</h5>
+                <p class="card-text"> {{producto.descripcion}}
+                <p class="card-text"> Precio: ${{producto.precio}}
+            </div>
+            <div class="col-auto">
+                <a class="btn btn-primary" type="button" style='width:125px; height:35px' href="{% url 'ABM:productosver' producto.id %}">Ver Producto</a><br><br>
+            </div>
+        
+    </div>
+    </div>
+    
+{% endfor %}
+</form>
+{% endblock %}

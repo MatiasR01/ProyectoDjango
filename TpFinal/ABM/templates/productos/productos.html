@@ -1,0 +1,21 @@
+{% extends "productos/layout.html" %}
+
+{% block body %}      
+
+      {% for un_producto in lista_productos %}
+            <li>              
+                <a href="{% url 'ABM:productosver' un_producto.id %}">Ver &nbsp;</a>        
+                {{un_producto}}//
+                {% if perms.ABM.editar %}
+                <a href="{% url 'ABM:editar' un_producto.id %}">Modificar</a> //
+                {% endif %}
+                {% if perms.ABM.eliminar %} 
+                <a href="{% url 'ABM:eliminar' un_producto.id %}">Eliminar</a> //
+                {% endif %}
+                
+            </li>
+            <br>
+        {% endfor %}
+        <br>
+        <br>
+{% endblock %}

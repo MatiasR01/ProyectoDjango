@@ -1,0 +1,31 @@
+{% extends "productos/layout.html" %}
+{% block body %}
+
+<form class="form-inline">
+
+{% for principal in productos %}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col-md-3">
+    <div class="card" style="width: 100%; margin: 5px 5px;">
+        
+         <img src="{{principal.imagen.url}}" class="card-img-top">
+            
+            <div class="card-body" style="text-aling: center;">
+                <h4 class="card-tittle text-center"> {{principal.titulo}}</h4>
+                <p class="card-text text-center"> {{principal.descripcion}}
+                <p class="card-text text-center"> Precio: ${{principal.precio}}
+            </div>
+            <div class="col-auto text-center">
+                <a class="btn btn-primary" type="button" style='width:125px; height:35px' href="{% url 'ABM:productosver' principal.id %}">Ver Producto</a><br><br>
+            </div>
+            <div class="card-footer text-center">
+                 <a href="#" class="btn btn-success">Agregar al carrito</a>
+            </div>
+        
+    </div>
+    </div>
+    
+{% endfor %}
+</form>
+
+{% endblock %}

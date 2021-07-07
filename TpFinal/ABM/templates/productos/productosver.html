@@ -1,0 +1,29 @@
+{% extends "productos/layout.html" %}
+{% block body %}      
+
+<h2>{{ producto.titulo }}</h2>
+DESCRIPCION: 
+<br>
+<div class="alert alert-info" role="alert">{{ producto.descripcion }}</div>
+Categoria
+<div class="alert alert-info" role="alert">{{ producto.categoria }}</span></p>
+</div>
+<div aling="center">
+    <p><img src="{{ media_url  }}{{ producto.imagen.url }}" alt="{{ producto.imagen.name }}"/></p>
+</div>
+Precio
+<div class="alert alert-info" role="alert"> ${{ producto.precio }}</span></p>
+</div>
+  {% if perms.ABM.editar%}
+   <form class="form-inline">
+     <input type="button" value="Volver" onClick="history.go(-1);">
+
+      <div aling="center">
+          <a type="button" class="btn btn-warning" style="margin-left: 20px" href="{% url 'ABM:eliminar' producto.id %}">Eliminar </a> 
+          <a type="button" class="btn btn-warning" style="margin-left: 20px" href="{% url 'ABM:editar' producto.id %}">Modificar</a>
+        </div>
+
+
+    </form> 
+   {% endif %}  
+{% endblock %}
